@@ -49,18 +49,14 @@ function swapHeights(h1, h2) {
 
 // sorting
 function bubbleSort(n) {
-    let interval;
     const bars = document.querySelectorAll('.bar');
     for(let i = 0; i < n; i++) {
-                interval = setTimeout(() => {
-                    clearTimeout(interval);
                     for(let j = 0; j < n - 1; j++) {
                         if(heights[j] > heights[j + 1]){
                             swapArrayValues(j + 1, j);
                             swapHeights(bars[j + 1], bars[j]);
                     }
                 }
-                }, i*1000);
     }
 }
 

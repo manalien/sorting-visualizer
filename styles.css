@@ -37,6 +37,7 @@ body {
 .bar {
     width: 20px;
     background-color: rgb(200, 200, 252);
+    transition: height 0.5s ease;
 }
 
 .flex-container {
