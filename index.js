@@ -25,25 +25,21 @@ document.querySelectorAll('.option').forEach((button, index) => {
     })
 })
 
-// generate button element
-const generateButton = document.querySelector('.generate-button');
-
 // on clicking the generate button, generateBars() function will be called
-generateButton.addEventListener('click', () => {
+document.querySelector('.generate-button').addEventListener('click', () => {
     generateBars(20);
 });
 
-// sort button element
-const sortButton = document.querySelector('.sort-button');
-
 // on clicking sort button bubbleSort() function will be called
-sortButton.addEventListener('click', () => {
+document.querySelector('.sort-button').addEventListener('click', () => {
     if(sortOption === 'bubble')
         bubbleSort(20);
     else if(sortOption === 'selection')
         selectionSort(20);
     else if(sortOption === 'insertion')
         insertionSort(20);
+    else if(sortOption === 'quick')
+        quickSort(0, 19);
     else if(sortOption === '')
         alert('Error. Select a sorting algorithm.');
 });
@@ -132,4 +128,33 @@ async function insertionSort(n) {
         }
         heights[j+1] = key;
     }
+}
+
+// quick sort
+async function quickSort(start, end) {
+    if(start >= end)
+        return ;
+
+    let pivot = await partition(start, end);
+    quickSort(start, pivot - 1);
+    quickSort(pivot + 1, end);
+}
+
+async function partition(start, end) {
+    let pivot = heights[end];
+    const bars = document.querySelectorAll('.bar');
+    let i = start - 1;
+    for(let j = start; j < end; j++) {
+        if(heights[j] < pivot) {
+            i++;
+            await delay(150);
+            swapArrayValues(i, j);
+            swapHeights(bars[i], bars[j]);
+        }
+    }
+    i++;
+    await delay(150);
+    swapArrayValues(end, i);
+    swapHeights(bars[end], bars[i]);
+    return i;
 }
