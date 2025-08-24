@@ -2,7 +2,7 @@
 
 let heights = [];
 
-let sortOption;
+let sortOption = '';
 
 const sorts = document.querySelectorAll('.option');
 const options = ['bubble', 'selection', 'merge', 'insertion', 'quick'];
@@ -42,6 +42,8 @@ sortButton.addEventListener('click', () => {
         bubbleSort(20);
     else if(sortOption === 'selection')
         selectionSort(20);
+    else if(sortOption === '')
+        alert('Error. Select a sorting algorithm.');
 });
 
 
