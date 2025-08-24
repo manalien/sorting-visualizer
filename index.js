@@ -2,6 +2,29 @@
 
 let heights = [];
 
+let sortOption;
+
+const sorts = document.querySelectorAll('.option');
+const options = ['bubble', 'selection', 'merge', 'insertion', 'quick'];
+
+// Incase another option is selected, we need to unselect it
+function unselect(index) {
+    for(let i = 0; i < sorts.length; i++){
+        if(i == index)
+            continue;
+        sorts[i].style.backgroundColor = 'white';
+    }
+}
+
+// on clicking on of the sort options
+document.querySelectorAll('.option').forEach((button, index) => {
+    button.addEventListener('click', () => {
+        button.style.backgroundColor = 'lavender';
+        sortOption = options[index];
+        unselect(index);
+    })
+})
+
 // generate button element
 const generateButton = document.querySelector('.generate-button');
 
@@ -15,7 +38,10 @@ const sortButton = document.querySelector('.sort-button');
 
 // on clicking sort button bubbleSort() function will be called
 sortButton.addEventListener('click', () => {
-    bubbleSort(20);
+    if(sortOption === 'bubble')
+        bubbleSort(20);
+    else if(sortOption === 'selection')
+        selectionSort(20);
 });
 
 
@@ -56,19 +82,32 @@ function delay(ms) {
 }
 
 
-// sorting
+// bubble sort
 async function bubbleSort(n) {
     const bars = document.querySelectorAll('.bar');
     for(let i = 0; i < n; i++) {
-                    for(let j = 0; j < n - 1; j++) {
-                        // creates delay before each comparison
-                        await delay(150);
-
-                        if(heights[j] > heights[j + 1]){
-                            swapArrayValues(j + 1, j);
-                            swapHeights(bars[j + 1], bars[j]);
-                    }
-                }
+        for(let j = 0; j < n - 1; j++) {
+            // creates delay before each comparison
+            await delay(150);
+            if(heights[j] > heights[j + 1]){
+                swapArrayValues(j + 1, j);
+                swapHeights(bars[j + 1], bars[j]);
+            }
+        }
     }
 }
 
+// selection sort
+async function selectionSort(n) {
+    const bars = document.querySelectorAll('.bar');
+    for(let i = 0; i < n; i++) {
+        for(let j = i; j < n; j++) {
+            // creates delay before each comparison
+            await delay(150);
+            if(heights[j] < heights[i]){
+                swapArrayValues(i, j);
+                swapHeights(bars[i], bars[j]);
+            }
+        }
+    }
+}

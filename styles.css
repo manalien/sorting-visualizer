@@ -10,19 +10,33 @@ body {
     font-size: 30px;
 }
 
+.sorting-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
 .generate-button,
 .sort-button {
-    width: 150px;
+    width: 140px;
     border: none;
     border-radius: 5px;
     padding: 10px;
     margin-right: 20px;
-    background-color: skyblue;
-    color: white;
     font-weight: 600;
     font-size: 15px;
     transition: background-color 0.3s ease;
     cursor: pointer;
+}
+
+.option {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: larger;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .generate-button:hover,
@@ -36,15 +50,16 @@ body {
 }
 
 .bar {
+    position: relative;
     width: 20px;
     background-color: rgb(200, 200, 252);
     transition: height 0.5s ease;
 }
 
 .flex-container {
+    position: absolute;
     display: flex;
     align-items: flex-end;
     gap: 10px;
     margin-top: 50px;
-    margin-left: 30px;
 }
