@@ -1,3 +1,5 @@
+// 26, 26, 102
+
 let heights = [];
 
 // generate button element
@@ -47,11 +49,21 @@ function swapHeights(h1, h2) {
     h2.style.height = temp;
 }
 
+
+// helper function for creating delay 
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 // sorting
-function bubbleSort(n) {
+async function bubbleSort(n) {
     const bars = document.querySelectorAll('.bar');
     for(let i = 0; i < n; i++) {
                     for(let j = 0; j < n - 1; j++) {
+                        // creates delay before each comparison
+                        await delay(150);
+
                         if(heights[j] > heights[j + 1]){
                             swapArrayValues(j + 1, j);
                             swapHeights(bars[j + 1], bars[j]);

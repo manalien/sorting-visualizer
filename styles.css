@@ -1,6 +1,7 @@
 body {
     font-family: 'Arial';
     margin-left: 40px;
+    background-color: white;
 }
 
 .heading {
@@ -11,17 +12,17 @@ body {
 
 .generate-button,
 .sort-button {
-    border: none;
-    padding: 10px;
-    cursor: pointer;
     width: 150px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
     margin-right: 20px;
     background-color: skyblue;
     color: white;
-    border-radius: 5px;
     font-weight: 600;
     font-size: 15px;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .generate-button:hover,
