@@ -42,6 +42,8 @@ sortButton.addEventListener('click', () => {
         bubbleSort(20);
     else if(sortOption === 'selection')
         selectionSort(20);
+    else if(sortOption === 'insertion')
+        insertionSort(20);
     else if(sortOption === '')
         alert('Error. Select a sorting algorithm.');
 });
@@ -90,7 +92,7 @@ async function bubbleSort(n) {
     for(let i = 0; i < n; i++) {
         for(let j = 0; j < n - 1; j++) {
             // creates delay before each comparison
-            await delay(150);
+            await delay(70);
             if(heights[j] > heights[j + 1]){
                 swapArrayValues(j + 1, j);
                 swapHeights(bars[j + 1], bars[j]);
@@ -105,11 +107,29 @@ async function selectionSort(n) {
     for(let i = 0; i < n; i++) {
         for(let j = i; j < n; j++) {
             // creates delay before each comparison
-            await delay(150);
+            await delay(20);
             if(heights[j] < heights[i]){
                 swapArrayValues(i, j);
                 swapHeights(bars[i], bars[j]);
             }
         }
+    }
+}
+
+
+// insertion sort
+async function insertionSort(n) {
+    const bars = document.querySelectorAll('.bar');
+    for(let i = 1; i < n; i++) {
+        let key = heights[i];
+        let j = i - 1;
+        
+        await delay(200);
+        while(j >= 0 && heights[j] > key) {
+            heights[j+1] = heights[j];
+            swapHeights(bars[j], bars[j+1]);
+            j--;
+        }
+        heights[j+1] = key;
     }
 }
