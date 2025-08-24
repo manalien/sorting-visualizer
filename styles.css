@@ -1,0 +1,48 @@
+body {
+    font-family: 'Arial';
+    margin-left: 40px;
+}
+
+.heading {
+    margin-top: 50px;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.generate-button,
+.sort-button {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 150px;
+    margin-right: 20px;
+    background-color: skyblue;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.generate-button:hover,
+.sort-button:hover {
+    opacity: 90%;
+}
+
+.generate-button:active,
+.sort-button:active {
+    opacity: 100%;
+}
+
+.bar {
+    width: 20px;
+    background-color: rgb(200, 200, 252);
+}
+
+.flex-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    margin-top: 50px;
+    margin-left: 30px;
+}
